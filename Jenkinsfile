@@ -4,6 +4,12 @@ pipeline {
 
     stages {
         
+        stage('installing npm dependencies'){
+            steps{
+                sh 'npm install'
+            }
+        }
+
         stage('run tests'){
             steps{
                 sh 'node --test'
@@ -52,6 +58,9 @@ pipeline {
         }
 
         stage('health check production'){
+            when {
+                branch 'main'
+            }
             steps{
                 sleep 2
                 sh "curl -s http://192.168.105.4:5555/api"

@@ -31,8 +31,8 @@ pipeline {
 
 
         stage('health check staging'){
-            sleep 2
             steps{
+                sleep 2
                 sh "curl -s http://192.168.105.3:5555/api"
             }
         }
@@ -52,8 +52,8 @@ pipeline {
         }
 
         stage('health check production'){
-            sleep 2
             steps{
+                sleep 2
                 sh "curl -s http://192.168.105.4:5555/api"
             }
         }

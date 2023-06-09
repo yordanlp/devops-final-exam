@@ -6,6 +6,7 @@ pipeline {
         
         stage('run tests'){
             steps{
+                sh 'npm install'
                 sh 'node --test'
             }
         }

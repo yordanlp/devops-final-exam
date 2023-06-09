@@ -6,7 +6,8 @@ pipeline {
         
         stage('run tests'){
             steps{
-                sh 'pwd'
+                sh 'npm install'
+                sh 'node --test'
             }
         }
 

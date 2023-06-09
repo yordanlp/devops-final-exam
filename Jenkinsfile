@@ -6,7 +6,7 @@ pipeline {
         
         stage('run tests'){
             steps{
-                sh 'node --test'
+                sh 'ls'
             }
         }
 

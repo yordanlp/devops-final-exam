@@ -3,6 +3,12 @@ pipeline {
 
 
     stages {
+        
+        stage('run tests'){
+            steps{
+                sh 'node --test'
+            }
+        }
 
         stage('build and push docker image'){
             steps{

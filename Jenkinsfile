@@ -29,6 +29,13 @@ pipeline {
             }
         }
 
+
+        stage('health check staging'){
+             steps{
+                 sh "curl -s http://192.168.105.3:5555/api"
+             }
+        }
+
         stage('deploy to prod'){
             when {
                 branch 'main'
@@ -43,10 +50,10 @@ pipeline {
             }
         }
 
-        // stage('health check'){
-        //     steps{
-        //         sh "curl -s http://192.168.105.4:5555/api"
-        //     }
-        // }
+        stage('health check production'){
+             steps{
+                 sh "curl -s http://192.168.105.4:5555/api"
+             }
+        }
     }
 }

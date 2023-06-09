@@ -6,7 +6,8 @@ pipeline {
         
         stage('run tests'){
             steps{
-                sh 'ls'
+                sh 'chmod 777 index.test.js'
+                sh 'node --test'
             }
         }
 
